@@ -1,0 +1,112 @@
+#N canvas 634 22 490 605 8;
+#X declare -path ./lib/sssad;
+#N canvas 372 312 266 140 init 0;
+#X obj 6 10 loadbang;
+#X msg 6 51 1;
+#X obj 84 13 declare -path ./lib/sssad;
+#X obj 6 73 s \$0-Activate;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X restore 209 1 pd init;
+#X obj 91 190 r OSC_MESSAGES;
+#X obj 91 208 routeOSC \$1;
+#X obj 45 550 image data/logo_vsl.gif;
+#X obj 151 317 s \$0-Activate;
+#X obj 91 268 symbol;
+#X obj 91 288 s \$0-File;
+#X obj 5 12 tgl 10 1 \$0-Activate \$0-Activate Activate 12 5 0 8 -4034
+-1 -1 1 1;
+#X obj 216 186 openpanel;
+#X msg 216 205 /File \$1;
+#X obj 81 566 zac.copyright;
+#X obj 339 273 r \$0-File;
+#X obj 312 295 symbol;
+#X msg 242 258 bang;
+#X obj 353 341 tgl 15 0 empty \$0-Activate empty 17 7 0 10 -262144
+-1 -1 1 1;
+#X obj 312 341 spigot;
+#X obj 374 421 r \$0-Amplitude;
+#X obj 5 24 cnv 10 190 10 empty \$0-File-label File: 0 5 0 8 -233017
+-1 0;
+#X obj 187 24 bng 10 250 50 0 empty empty empty 13 5 0 8 -262144 -1
+-1;
+#N canvas 104 381 195 156 Labeling 0;
+#X obj 17 10 r \$0-File;
+#X obj 17 103 s \$0-File-label;
+#X obj 17 43 makefilename File:%s;
+#X msg 17 83 label \$1;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X restore 209 63 pd Labeling;
+#X obj 312 461 outlet~;
+#X obj 353 359 select 0;
+#X msg 353 378 stop;
+#X msg 312 316 open \$1 \, start;
+#X msg 192 267 bang;
+#X obj 300 537 dac~;
+#X obj 304 487 tgl 15 0 empty \$0-DEBUG DEBUG 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 272 506 spigot~;
+#X obj 162 14 tgl 8 0 \$0-DEBUG empty DEBUG 12 5 0 8 -262144 -1 -1
+0 1;
+#X obj 312 441 expr~ $v1*$f2;
+#X obj 312 405 readsf~;
+#X obj 190 55 vsl 8 115 0 100 0 0 empty \$0-vumeter empty 0 -9 0 10
+-262144 -1 -1 0 1;
+#X obj 276 442 env~;
+#N canvas 265 152 633 440 (subpatch) 0;
+#X array \$0-sampler 4410 float 2;
+#X coords 0 1 4410 -1 185 80 1;
+#X restore 2 93 graph;
+#X obj 164 442 tabwrite~ \$0-sampler;
+#X obj 164 420 metro 100;
+#X obj 95 54 tgl 15 0 empty empty Oscilloscope 17 7 0 10 -257985 -1
+-1 0 1;
+#X obj 5 36 bng 15 250 50 0 \$0-Play empty Play 17 7 0 10 -4034 -1
+-1;
+#X obj 5 53 bng 15 250 50 0 \$0-Stop empty Stop 17 7 0 10 -4160 -1
+-1;
+#X obj 192 290 s \$0-Play;
+#X obj 312 253 r \$0-Play;
+#X obj 244 279 s \$0-Stop;
+#X obj 408 362 r \$0-Stop;
+#X obj 240 463 s \$0-vumeter;
+#X obj 91 227 routeOSC /Open /File /Activate /Play /Start /Stop;
+#X connect 1 0 2 0;
+#X connect 2 0 44 0;
+#X connect 5 0 6 0;
+#X connect 8 0 9 0;
+#X connect 9 0 44 0;
+#X connect 11 0 12 1;
+#X connect 12 0 23 0;
+#X connect 13 0 41 0;
+#X connect 14 0 15 1;
+#X connect 14 0 21 0;
+#X connect 15 0 30 0;
+#X connect 16 0 29 1;
+#X connect 18 0 8 0;
+#X connect 21 0 22 0;
+#X connect 22 0 30 0;
+#X connect 23 0 15 0;
+#X connect 24 0 39 0;
+#X connect 26 0 27 1;
+#X connect 27 1 25 0;
+#X connect 27 1 25 1;
+#X connect 29 0 20 0;
+#X connect 29 0 27 0;
+#X connect 30 0 29 0;
+#X connect 30 0 32 0;
+#X connect 30 0 34 0;
+#X connect 32 0 43 0;
+#X connect 35 0 34 0;
+#X connect 36 0 35 0;
+#X connect 40 0 12 0;
+#X connect 42 0 22 0;
+#X connect 44 0 5 0;
+#X connect 44 1 5 0;
+#X connect 44 2 4 0;
+#X connect 44 3 24 0;
+#X connect 44 4 24 0;
+#X connect 44 5 13 0;
+#X coords 0 -1 1 1 200 175 1 0 0;

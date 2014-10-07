@@ -1,0 +1,54 @@
+#N canvas 0 22 902 463 10;
+#X declare -path ./lib/sssad;
+#X obj 29 213 cnv 15 430 125 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 29 177 cnv 15 430 30 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#X text 38 176 Arguments:;
+#X obj 28 56 cnv 15 430 115 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 481 54 Example:;
+#X text 38 346 see also:;
+#X text 472 8 VirtualStageLight object;
+#X obj 71 429 send OSC_MESSAGES;
+#X obj 557 403 send OSC_MESSAGES;
+#X text 67 365 [zac.lumiere];
+#X obj 350 418 image data/logo_vsl.gif;
+#X text 67 385 [zac.animation];
+#X obj 478 76 zac.controleurMIDI 1 1 /lum/Alpha;
+#X obj 688 6 zac.lumiere /lum;
+#X text 70 11 Synopsis: [zac.controleurMIDI];
+#X text 49 57 Description: a MIDI controler object;
+#X text 31 79 [zac.controleurMIDI] is a MIDI controler object. Its
+behavior is argument dependent.;
+#X text 32 123 OUTLET output the value of the controler \, according
+to the coefficient given as the fourth argument.;
+#X text 84 187 symbol: <MIDI_CC> <MIDI_Channel> <object_param> <coeff>
+;
+#X text 60 215 Arguments definition:;
+#X text 43 231 MIDI_CC: MIDI Control Change number to catch;
+#X text 43 241 MIDI_Channel: MIDI Channel to catch;
+#X text 43 251 object_param: OSC name of the object parameter to control
+;
+#X text 43 261 coeff: By default \, the MIDI value is clipped between
+0..1 as a float value. If you want to change the upper scale value
+\, change the coefficient accordingly to your needs. The formula is
+very simple: output = MIDIinput / 127 * coeff;
+#X text 67 405 [zac.camera];
+#X obj 478 186 zac.controleurMIDI 11 1 /lum/Rotate 360;
+#X floatatom 478 209 5 0 0 0 - - -;
+#X floatatom 478 99 5 0 0 0 - - -;
+#X floatatom 478 279 5 0 0 0 - - -;
+#X text 479 166 Controler with an output coefficient;
+#X obj 478 256 zac.controleurMIDI 11 1 /lum/RotateBAD;
+#X text 477 235 !BAD! Same controler without coefficient !BAD!;
+#X msg 478 360 /lum/?pos \$1;
+#X obj 478 316 zac.controleurMIDI 2 1 NONE 10;
+#X obj 478 338 - 5;
+#X obj 386 434 zac.copyright;
+#X connect 12 0 27 0;
+#X connect 25 0 26 0;
+#X connect 30 0 28 0;
+#X connect 32 0 8 0;
+#X connect 33 0 34 0;
+#X connect 34 0 32 0;

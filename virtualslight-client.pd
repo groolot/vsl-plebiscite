@@ -1,0 +1,21 @@
+#N canvas 560 119 450 300 10;
+#N canvas 559 219 450 300 conducteur----------------------------- 0
+;
+#X obj 37 262 s OSC_MESSAGES;
+#X msg 37 51 /vsl-server/lum/Alpha \$1;
+#X obj 40 26 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X restore 11 110 pd conducteur-----------------------------;
+#X obj 11 76 zac.net_client 127.0.0.1 12345 /vsl-server;
+#X obj 42 36 image data/logo_vsl.gif;
+#X obj 78 6 zac.copyright;
+#N canvas 92 225 563 164 init 0;
+#X obj 14 124 sys_gui;
+#X obj 14 3 loadbang;
+#X msg 14 102 menu_toggle_console \, wm title . "VirtualStageLight
+- Client";
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X restore 79 27 pd init;

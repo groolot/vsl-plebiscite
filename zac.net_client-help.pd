@@ -1,0 +1,9 @@
+#N canvas 700 43 419 190 10;
+#X obj 25 19 zac.net_client 127.0.0.1 12345 /YOUPI;
+#X text 37 56 Connexion au serveur 127.0.0.1 sur le port TCP 12345
+avec l'espace de nom OSC : /YOUPI.;
+#X text 18 84 Le serveur devra avoir ete cree avec le meme espace de
+nom pour recevoir les bons messages OSC.;
+#X obj 85 150 image data/logo_vsl.gif;
+#X obj 121 166 zac.copyright;
+#X coords 0 0 1 1 200 30 0;

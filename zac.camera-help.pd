@@ -1,0 +1,80 @@
+#N canvas 180 75 890 550 10;
+#X declare -path ./lib/sssad;
+#X obj 19 253 cnv 15 430 200 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 19 217 cnv 15 430 30 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#X text 28 216 Arguments:;
+#X obj 18 46 cnv 15 430 165 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 471 44 Example:;
+#X text 28 456 see also:;
+#X text 462 -2 VirtualStageLight object;
+#X text 74 227 symbol: <object_OSC_name>;
+#X obj 61 519 send OSC_MESSAGES;
+#X text 50 255 OSC controls (sent to OSC_MESSAGES):;
+#X text 22 173 There is no INLET nor OUTLET \, everything's through
+OSC_MESSAGES.;
+#X text 33 361 /Activate 1/0 : Activate or not the object;
+#X text 33 371 /modeAlpha 1/0 : Activate or not the object;
+#X obj 473 236 loadbang;
+#X obj 473 257 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 501 476 send OSC_MESSAGES;
+#X obj 473 301 float 0;
+#X obj 524 301 + 1;
+#X obj 552 301 % 100;
+#X obj 473 324 / 100;
+#X text 57 475 [zac.lumiere];
+#X text 33 271 /Scale float : set the Scale to the float number;
+#X text 33 321 /Contrast float : set the Contrast to the float number
+;
+#X text 33 331 /Gain float : set the Gain to the float number;
+#X text 33 311 /Alpha float : set the Alpha (transparency) to float
+value;
+#X text 33 291 /Xpos float : set the Xpos to the float number;
+#X text 33 281 /Rotate float : set the Rotate to the float number (0-360)
+;
+#X text 33 301 /Ypos float : set the Ypos to the float number;
+#X text 33 341 /RenderOrder float : set the RenderOrder (layer position)
+;
+#X obj 502 374 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 330 498 image data/logo_vsl.gif;
+#X text 60 1 Synopsis: [zac.camera /OSCname];
+#X text 39 47 Description: a camera object with UI controls;
+#X text 21 69 [zac.camera] is a named camera object. Its name should
+be an OSC identifier compatible name.;
+#X text 22 103 The object integer all the User Interface needed to
+controls the behavior of the object. Unfortunatly you CANNOT set the
+USB device you want programmaticaly. YOU SHOULD SELECT YOUR DEVICE
+MANUALLY by clicking the DevDlg bang button.;
+#X obj 467 66 zac.camera /demo-webcam;
+#X msg 474 348 /demo-webcam/Alpha \$1;
+#X msg 561 263 /demo-webcam/Activate 1;
+#X obj 502 394 metro 2500;
+#X msg 502 419 /demo-web*/Rotate 0 \, /demo-web*/Rotate 360 2500;
+#X obj 473 277 metro 50;
+#X text 57 495 [zac.animation];
+#X msg 628 325 /demo-web*/Masque data/cercle_masque.tif;
+#X text 33 391 /Masque symbol : Set the file of the image used as the
+camera mask (absolute path or relative to the zac.animation patch)
+;
+#X obj 366 514 zac.copyright;
+#X connect 13 0 14 0;
+#X connect 13 0 37 0;
+#X connect 13 0 29 0;
+#X connect 13 0 42 0;
+#X connect 14 0 40 0;
+#X connect 16 0 17 0;
+#X connect 16 0 19 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 1;
+#X connect 19 0 36 0;
+#X connect 29 0 38 0;
+#X connect 36 0 15 0;
+#X connect 37 0 15 0;
+#X connect 38 0 39 0;
+#X connect 39 0 15 0;
+#X connect 40 0 16 0;
+#X connect 42 0 15 0;

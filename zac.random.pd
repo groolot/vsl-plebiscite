@@ -1,0 +1,25 @@
+#N canvas 690 264 428 181 10;
+#X obj 22 19 inlet;
+#X obj 22 154 outlet;
+#X obj 22 41 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 22 61 metro \$1;
+#X obj 72 154 outlet metro_bang;
+#X obj 22 92 random 50;
+#X obj 22 115 / 50;
+#X msg -11 92 1;
+#X obj 186 153 outlet actif;
+#X obj 120 47 image data/logo_vsl.gif;
+#X obj 56 115 t b f;
+#X obj 156 63 zac.copyright;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 2 0 7 0;
+#X connect 2 0 8 0;
+#X connect 3 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 6 0 10 0;
+#X connect 7 0 1 0;
+#X connect 10 0 4 0;
+#X connect 10 1 1 0;

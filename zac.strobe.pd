@@ -1,0 +1,21 @@
+#N canvas 589 274 343 200 10;
+#X obj 12 9 inlet;
+#X obj 12 97 outlet;
+#X obj 62 97 outlet;
+#X obj 12 31 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj 12 51 metro \$1;
+#X obj 12 75 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 88 50 1;
+#X obj 111 97 outlet actif;
+#X obj 46 154 image data/logo_vsl.gif;
+#X obj 82 170 zac.copyright;
+#X connect 0 0 3 0;
+#X connect 3 0 4 0;
+#X connect 3 0 6 0;
+#X connect 3 0 7 0;
+#X connect 4 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 5 0;

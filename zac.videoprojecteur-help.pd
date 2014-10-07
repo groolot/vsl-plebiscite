@@ -1,0 +1,38 @@
+#N canvas 626 53 621 498 10;
+#X obj 9 263 cnv 15 430 40 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 9 227 cnv 15 430 30 empty empty empty 20 12 0 14 -195568 -66577
+0;
+#X text 18 226 Arguments:;
+#X obj 8 56 cnv 15 430 165 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X text 461 54 Example:;
+#X text 18 306 see also:;
+#X text 452 8 VirtualStageLight object;
+#X text 47 325 [zac.animation];
+#X text 64 237 symbol: <object_OSC_name>;
+#X obj 51 389 send OSC_MESSAGES;
+#X text 40 265 OSC controls (sent to OSC_MESSAGES):;
+#X text 12 153 There is no INLET nor OUTLET \, everything's through
+OSC_MESSAGES.;
+#X obj 457 428 send OSC_MESSAGES;
+#X obj 43 451 image data/logo_vsl.gif;
+#X text 50 11 Synopsis: [zac.videoprojecteur /OSCname];
+#X text 29 57 Description: a videoprojector object with UI controls
+;
+#X obj 457 76 zac.videoprojecteur /demo-vp;
+#X obj 460 302 hsl 128 15 0.1 2 1 1 empty empty Scale -2 -8 0 10 -262144
+-1 -1 9763 1;
+#X floatatom 457 322 5 0 0 0 - - -;
+#X msg 457 344 /demo-vp/Scale \$1;
+#X text 11 79 [zac.videoprojecteur] is a named videoprojector object.
+Its name should be an OSC identifier compatible name.;
+#X text 12 113 The object integer all the User Interface needed to
+controls the behavior of the object.;
+#X text 23 281 /Scale float : set the Scale to the float number;
+#X text 47 345 [zac.lumiere];
+#X text 47 365 [zac.camera];
+#X obj 79 467 zac.copyright;
+#X connect 17 0 18 0;
+#X connect 18 0 19 0;
+#X connect 19 0 12 0;

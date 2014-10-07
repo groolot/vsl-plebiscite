@@ -1,0 +1,56 @@
+#N canvas 361 287 300 95 10;
+#N canvas 45 59 367 126 sub-\$1 0;
+#X obj 89 9 pdp_colorgrid pdp_colorgrid1 256 0 256 50 0 50 0 1 1 10
+10 214 85;
+#N canvas 458 62 450 300 control2OSC 0;
+#X obj 35 103 / 255;
+#X obj 80 255 s OSC_MESSAGES;
+#X obj 159 103 / 255;
+#X obj 284 103 / 255;
+#X msg 284 145 \$1/Blue \$2;
+#X obj 34 56 inlet;
+#X obj 164 56 inlet;
+#X obj 285 56 inlet;
+#X msg 159 145 \$1/Green \$2;
+#X msg 35 145 \$1/Red \$2;
+#X obj 35 124 list prepend \$1;
+#X obj 159 124 list prepend \$1;
+#X obj 284 124 list prepend \$1;
+#X obj 5 2 cnv 11 60 11 empty \$0-rlabel R:1.00392 2 6 0 8 -86277 -262144
+0;
+#X obj 70 2 cnv 11 60 11 empty \$0-glabel G:1.00392 2 6 0 8 -13381
+-262144 0;
+#X obj 135 2 cnv 11 60 11 empty \$0-blabel B:1.00392 2 6 0 8 -40 -262144
+0;
+#X msg 17 166 label R:\$1;
+#X obj 17 186 s \$0-rlabel;
+#X msg 147 166 label G:\$1;
+#X msg 267 166 label B:\$1;
+#X obj 147 186 s \$0-glabel;
+#X obj 267 186 s \$0-blabel;
+#X connect 0 0 10 0;
+#X connect 0 0 16 0;
+#X connect 2 0 11 0;
+#X connect 2 0 18 0;
+#X connect 3 0 12 0;
+#X connect 3 0 19 0;
+#X connect 4 0 1 0;
+#X connect 5 0 0 0;
+#X connect 6 0 2 0;
+#X connect 7 0 3 0;
+#X connect 8 0 1 0;
+#X connect 9 0 1 0;
+#X connect 10 0 9 0;
+#X connect 11 0 8 0;
+#X connect 12 0 4 0;
+#X connect 16 0 17 0;
+#X connect 18 0 20 0;
+#X connect 19 0 21 0;
+#X coords 0 -1 1 1 200 15 2 0 0;
+#X restore 117 65 pd control2OSC;
+#X obj 44 69 image data/logo_vsl.gif;
+#X obj 80 85 zac.copyright;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 0 2 1 2;
+#X restore 14 8 pd sub-\$1;

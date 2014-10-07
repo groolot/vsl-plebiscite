@@ -1,0 +1,6 @@
+#N canvas 640 116 434 158 10;
+#X obj 35 33 zac.net_server 12345 /YOUPI;
+#X text 65 53 ouvre le port TCP 12345 et redirige les messages vers
+OSC_MESSAGES en considérant le namespace global a /YOUPI;
+#X obj 95 120 image data/logo_vsl.gif;
+#X obj 131 136 zac.copyright;

@@ -1,0 +1,32 @@
+#N canvas 264 110 508 379 10;
+#X obj 22 340 outlet value;
+#X obj 22 149 / 127;
+#X obj 64 264 pack s f;
+#X obj 82 220 t b f;
+#X msg 65 290 \$1 \$2;
+#X obj 65 313 s OSC_MESSAGES;
+#X obj 35 241 symbol \$3;
+#X obj 207 277 image data/logo_vsl.gif;
+#X text 17 3 zac.controleurMIDI.pd : permet de controler directement
+un parametre routable d'un objet fourni en parametre et de fournir
+une sortie normalisee [0..1] a partir du controleur MIDI fourni en
+parametre. Param1 : numero du controleur MIDI Param2 : numero du canal
+MIDI Param3 : objet OSC a controler Param4 : coefficient multiplicateur
+pour le parametre (360 pour un 'Rotate' par exemple);
+#X obj 152 155 float \$4;
+#X obj 22 113 ctlin \$1 \$2;
+#X obj 22 176 expr if($f2 != 0 \, $f1*$f2 \, $f1);
+#X obj 152 130 bang;
+#X obj 243 293 zac.copyright;
+#X connect 1 0 11 0;
+#X connect 2 0 4 0;
+#X connect 3 0 6 0;
+#X connect 3 1 2 1;
+#X connect 4 0 5 0;
+#X connect 6 0 2 0;
+#X connect 9 0 11 1;
+#X connect 10 0 1 0;
+#X connect 10 0 12 0;
+#X connect 11 0 3 0;
+#X connect 11 0 0 0;
+#X connect 12 0 9 0;

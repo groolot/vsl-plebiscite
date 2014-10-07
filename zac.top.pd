@@ -1,0 +1,18 @@
+#N canvas 41 443 294 189 10;
+#X obj 8 -69 r OSC_MESSAGES;
+#X obj 8 -47 routeOSC /top;
+#X obj 8 -27 routeOSC \$1;
+#X obj 8 23 outlet BANG;
+#X obj 110 -69 inlet;
+#X obj 219 11 image data/logo_vsl.gif;
+#X obj 12 49 zac.copyright;
+#X obj 1 1 cnv 13 98 10 empty empty /top\$1 0 6 0 8 -262144 -86277
+0;
+#X obj 84 0 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 8 0;
+#X connect 4 0 8 0;
+#X connect 8 0 3 0;
+#X coords 0 -1 1 1 100 15 2 0 0;

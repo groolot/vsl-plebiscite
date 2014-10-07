@@ -1,0 +1,14 @@
+#N canvas 634 311 344 220 10;
+#X obj 38 40 unpackOSCstream;
+#X obj 38 64 pipelist;
+#X obj 38 114 s OSC_MESSAGES;
+#X obj 38 9 tcpreceive \$1;
+#X obj 38 89 routeOSC \$2;
+#X text 127 88 gestion de l'espace de nom;
+#X obj 42 171 image data/logo_vsl.gif;
+#X obj 78 187 zac.copyright;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 4 0;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
