@@ -1,4 +1,4 @@
-#N canvas 0 843 1920 357 10;
+#N canvas 0 43 638 555 10;
 #X declare -path ./lib/sssad;
 #X declare -path ./lib/sssad;
 #X declare -path ./lib/sssad;
@@ -6,6 +6,7 @@
 #X declare -lib GEM;
 #X declare -path ./lib/sssad;
 #X declare -lib mrpeach;
+#X declare -path ./lib/sssad;
 #X declare -path ./lib/sssad;
 #X declare -path ./lib/sssad;
 #X declare -path ./lib/sssad;
@@ -64,13 +65,14 @@
 #X obj 3 -190 zac.sauvegarde /file;
 #X obj 26 142 loadbang;
 #X obj 19 235 s OSC_MESSAGES;
-#N canvas 962 43 958 1157 generique------------ 0;
+#N canvas 642 43 636 555 generique------------ 1;
 #X obj 217 179 zac.text /generiqueA-titre2-gregory;
 #X obj 13 179 zac.text /generiqueA-titre-gregory;
 #X obj 13 293 zac.text /generiqueA-nom-gregory;
 #X obj 13 64 zac.text /generiqueA-nom-sandra;
 #X obj 13 -50 zac.text /generiqueA-titre-sandra;
 #X obj 13 412 zac.text /generiqueB;
+#X obj 223 412 zac.text /generiqueB-sous-titre;
 #X restore 345 -5 pd generique------------;
 #N canvas 962 43 476 1157 masques-------------- 0;
 #X obj 8 281 zac.lumiere /mask1;
@@ -88,7 +90,7 @@
 #X obj 658 312 zac.lumiere /maskB;
 #X obj 885 79 zac.lumiere /mask8;
 #X restore 345 -32 pd masques--------------;
-#N canvas 0 43 638 1157 network-------------- 0;
+#N canvas 0 643 1920 557 network-------------- 1;
 #X obj 85 312 s OSC_MESSAGES;
 #X obj 57 22 netreceive 1234 1;
 #X obj 189 22 print NET:;
