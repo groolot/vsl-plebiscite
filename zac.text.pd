@@ -1,17 +1,17 @@
-#N canvas 386 70 380 1130 8;
+#N canvas 0 43 425 297 8;
 #X declare -path ./lib/sssad;
 #X obj 8 24 hsl 150 8 0.005 500 1 1 \$0-Scale \$0-Scale Scale 5 4 0
 8 -228856 -1 -1 11259 1;
 #X obj 8 34 hsl 150 8 -20 20 0 1 \$0-Xpos \$0-Xpos Xpos 5 4 0 8 -228856
--1 -1 7450 1;
+-1 -1 7769 1;
 #X obj 8 44 hsl 150 8 -10 10 0 1 \$0-Ypos \$0-Ypos Ypos 5 4 0 8 -228856
--1 -1 7450 1;
+-1 -1 6780 1;
 #X obj 162 24 nbx 4 8 0 500 0 1 \$0-Scale \$0-Scale empty 0 -8 0 8
--262144 -1 -1 30.0025 256;
+-262144 -1 -1 30 256;
 #X obj 162 34 nbx 4 8 -20 20 0 1 \$0-Xpos \$0-Xpos empty 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 0.85542 256;
 #X obj 162 44 nbx 4 8 -10 10 0 1 \$0-Ypos \$0-Ypos empty 0 -8 0 8 -262144
--1 -1 0 256;
+-1 -1 -0.9 256;
 #N canvas 372 312 266 140 init 0;
 #X obj 6 10 loadbang;
 #X msg 6 51 1;
@@ -134,20 +134,30 @@
 #X connect 2 0 1 0;
 #X connect 3 0 2 1;
 #X restore 321 93 pd alpha;
-#N canvas 1442 43 478 1157 objet 0;
+#N canvas 429 43 423 297 objet 1;
 #X obj 7 9 inlet gemList;
 #X obj 29 189 outlet gemList;
 #X obj 65 161 text2d;
-#X obj 92 143 r \$0-Scale;
+#X obj 92 113 r \$0-Scale;
 #X msg 79 81 alias \$1;
 #X obj 61 35 r \$0-TextList;
 #X obj 79 61 r \$0-Antialiasing;
+#X obj 166 96 t b;
+#X obj 166 117 float 1;
+#X obj 198 75 r GLOBALSCALING;
+#X obj 92 137 *;
 #X connect 0 0 2 0;
 #X connect 2 0 1 0;
-#X connect 3 0 2 1;
+#X connect 3 0 10 0;
 #X connect 4 0 2 0;
 #X connect 5 0 2 0;
 #X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 7 0 10 0;
+#X connect 8 0 10 1;
+#X connect 9 0 8 1;
+#X connect 9 0 7 0;
+#X connect 10 0 2 1;
 #X restore 321 120 pd objet;
 #X obj 211 324 s \$0-Xscale;
 #X obj 229 249 s \$0-Xpos;
@@ -683,9 +693,9 @@
 #X restore 209 37 pd mousecontrol;
 #X obj 112 14 bng 8 250 50 0 \$0-PRESET_SAVE empty preset 12 4 0 8
 -258113 -1 -1;
-#N canvas 770 70 380 1130 PRESET 1;
+#N canvas 770 70 380 1130 PRESET 0;
 #X obj 21 13 r \$0-PRESET_SAVE;
-#N canvas 1538 70 382 1130 PRESET_PACK 1;
+#N canvas 1538 70 382 1130 PRESET_PACK 0;
 #X obj 4 3 inlet get;
 #X obj 8 35 bang;
 #X obj 8 62 float;
@@ -718,7 +728,7 @@
 #X connect 13 0 15 10;
 #X connect 15 0 14 0;
 #X restore 21 32 pd PRESET_PACK;
-#N canvas 1154 70 380 1130 PRESET_UNPACK 1;
+#N canvas 1154 70 380 1130 PRESET_UNPACK 0;
 #X obj 4 3 inlet get;
 #X obj 8 25 bang;
 #X obj 8 43 list;
@@ -768,11 +778,11 @@
 #X obj 5 12 tgl 10 1 \$0-Activate \$0-Activate Activate 12 5 0 8 -4034
 -1 -1 1 1;
 #X obj 8 64 hsl 150 8 0 1 0 1 \$0-Red \$0-Red Red 5 4 0 8 -261234 -1
--1 14900 1;
+-1 10430 1;
 #X obj 8 74 hsl 150 8 0 1 0 1 \$0-Green \$0-Green Green 5 4 0 8 -204786
--1 -1 14900 1;
+-1 -1 10430 1;
 #X obj 8 84 hsl 150 8 0 1 0 1 \$0-Blue \$0-Blue Blue 5 4 0 8 -203904
--1 -1 14900 1;
+-1 -1 10430 1;
 #X obj 118 96 tgl 10 1 \$0-Antialiasing \$0-Antialiasing AntiAliasing
 12 5 0 8 -1 -262144 -1 1 1;
 #X obj 162 54 nbx 4 8 0 1 0 1 \$0-Alpha \$0-Alpha empty 0 -8 0 8 -262144
@@ -780,11 +790,11 @@
 #X obj 8 54 hsl 150 8 0 1 0 1 \$0-Alpha \$0-Alpha Alpha 5 4 0 8 -1
 -262144 -262144 14900 1;
 #X obj 162 64 nbx 4 8 0 1 0 1 \$0-Red \$0-Red empty 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 0.7 256;
 #X obj 162 74 nbx 4 8 0 1 0 1 \$0-Green \$0-Green empty 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 0.7 256;
 #X obj 162 84 nbx 4 8 0 1 0 1 \$0-Blue \$0-Blue empty 0 -8 0 8 -262144
--1 -1 1 256;
+-1 -1 0.7 256;
 #X obj 211 304 line;
 #X obj 229 230 line;
 #X obj 249 193 line;
