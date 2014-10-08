@@ -1,4 +1,4 @@
-#N canvas 0 43 638 555 10;
+#N canvas 482 43 476 1157 10;
 #X declare -path ./lib/sssad;
 #X declare -path ./lib/sssad;
 #X declare -path ./lib/sssad;
@@ -65,7 +65,7 @@
 #X obj 3 -190 zac.sauvegarde /file;
 #X obj 26 142 loadbang;
 #X obj 19 235 s OSC_MESSAGES;
-#N canvas 642 43 636 555 generique------------ 1;
+#N canvas 1442 43 478 1157 generique------------ 1;
 #X obj 217 179 zac.text /generiqueA-titre2-gregory;
 #X obj 13 179 zac.text /generiqueA-titre-gregory;
 #X obj 13 293 zac.text /generiqueA-nom-gregory;
@@ -90,7 +90,7 @@
 #X obj 658 312 zac.lumiere /maskB;
 #X obj 885 79 zac.lumiere /mask8;
 #X restore 345 -32 pd masques--------------;
-#N canvas 0 643 1920 557 network-------------- 1;
+#N canvas 0 643 1920 557 network-------------- 0;
 #X obj 85 312 s OSC_MESSAGES;
 #X obj 57 22 netreceive 1234 1;
 #X obj 189 22 print NET:;
@@ -119,7 +119,6 @@
 153600 \, /plebiscite/Alpha 1;
 #X msg 118 152 /plebiscite/VideoPos 4972 \, /plebiscite/VideoPos 8899
 376000 \, /plebiscite/Alpha 1;
-#X msg 167 124 /plebiscite/Alpha 0 250;
 #X obj 1068 88 route GENERIQUEA GENERIQUEB;
 #X obj 1075 234 s OSC_MESSAGES;
 #X obj 1046 123 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
@@ -132,16 +131,17 @@
 0 1;
 #X msg 1177 116 /generiqueB*/Activate 1 \, /generiqueB*/Alpha \$1 1000
 ;
+#X msg 167 124 /plebiscite/Alpha 0 250 \, /plebiscite/VideoPos 0;
 #X connect 1 0 2 0;
 #X connect 1 0 15 0;
-#X connect 3 0 21 0;
+#X connect 3 0 28 0;
 #X connect 4 0 5 0;
 #X connect 5 0 14 0;
 #X connect 6 0 4 0;
 #X connect 6 1 7 0;
 #X connect 6 2 9 0;
 #X connect 6 3 10 0;
-#X connect 6 4 22 0;
+#X connect 6 4 21 0;
 #X connect 7 0 8 0;
 #X connect 8 0 14 0;
 #X connect 9 0 11 0;
@@ -149,28 +149,28 @@
 #X connect 11 0 14 0;
 #X connect 12 0 14 0;
 #X connect 13 0 19 0;
-#X connect 13 1 21 0;
+#X connect 13 1 28 0;
 #X connect 15 0 13 0;
 #X connect 15 1 16 0;
 #X connect 15 2 17 0;
 #X connect 15 3 3 0;
 #X connect 15 4 6 0;
 #X connect 16 0 18 0;
-#X connect 16 1 21 0;
+#X connect 16 1 28 0;
 #X connect 17 0 20 0;
-#X connect 17 1 21 0;
+#X connect 17 1 28 0;
 #X connect 18 0 0 0;
 #X connect 19 0 0 0;
 #X connect 20 0 0 0;
-#X connect 21 0 0 0;
-#X connect 22 0 24 0;
-#X connect 22 1 27 0;
-#X connect 24 0 25 0;
-#X connect 24 0 26 0;
-#X connect 25 0 23 0;
-#X connect 26 0 23 0;
-#X connect 27 0 28 0;
-#X connect 28 0 23 0;
+#X connect 21 0 23 0;
+#X connect 21 1 26 0;
+#X connect 23 0 24 0;
+#X connect 23 0 25 0;
+#X connect 24 0 22 0;
+#X connect 25 0 22 0;
+#X connect 26 0 27 0;
+#X connect 27 0 22 0;
+#X connect 28 0 0 0;
 #X restore 345 21 pd network--------------;
 #X msg 22 177 /file/Load ./plebiscite.sssad;
 #X msg 40 205 /file/Save ./plebiscite.sssad;
